@@ -1,0 +1,37 @@
+$cl-prime: #d3ab55;
+$cl-dark: #262626;
+$cl-black: #000;
+
+$font-prime: "Josefin Sans", sans-serif;
+$font-cursive: "Dancing Script", cursive;
+$font-nurito: "Nunito", sans-serif;
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+body {
+  // font-family: "Nunito", sans-serif;
+  font-family: $font-prime;
+  font-size: 1.6rem;
+  font-weight: 200;
+  line-height: 2.6rem;
+  color: #333;
+
+  background-color: $cl-dark;
+}
+
+@mixin flexCenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
