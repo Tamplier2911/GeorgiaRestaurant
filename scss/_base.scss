@@ -24,7 +24,7 @@ body {
   font-family: $font-prime;
   font-size: 1.6rem;
   font-weight: 200;
-  line-height: 2.6rem;
+  // line-height: 1.6rem;
   color: #333;
 
   background-color: $cl-dark;
@@ -34,4 +34,24 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+@mixin centeringAbs($x: 50%, $y: 50%) {
+  position: absolute;
+  top: $x;
+  left: $y;
+  transform: translate(-50%, -50%);
+}
+
+@mixin centeringGrid {
+  display: grid;
+  align-content: center;
+  justify-content: center;
+}
+
+@mixin image {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
 }

@@ -1,0 +1,36 @@
+// BUTTON
+
+.btn {
+  cursor: pointer;
+  padding: 1rem 4rem;
+  background-color: transparent;
+  border: $cl-prime solid 0.2rem;
+  font-size: 1.6rem;
+  color: $cl-prime;
+  text-transform: uppercase;
+  transition: background-color 0.3s, color 0.3s;
+
+  &:hover {
+    background-color: $cl-prime;
+    color: $cl-dark;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+// HEADINGS
+
+.heading-main {
+  font-size: 8rem;
+  color: $cl-prime;
+  font-family: $font-cursive;
+  font-weight: 300;
+}
+
+.heading-sub {
+  font-size: 5rem;
+  color: #eeeeee;
+  font-weight: 200;
+}
