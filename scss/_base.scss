@@ -1,6 +1,7 @@
 $cl-prime: #d3ab55;
 $cl-dark: #262626;
 $cl-black: #000;
+$cl-white: #eee;
 
 $font-prime: "Josefin Sans", sans-serif;
 $font-cursive: "Dancing Script", cursive;
@@ -54,4 +55,9 @@ body {
   height: 100%;
   display: block;
   object-fit: cover;
+}
+
+%fullSpace {
+  width: 100%;
+  height: 100%;
 }

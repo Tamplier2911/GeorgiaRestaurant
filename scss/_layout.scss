@@ -43,9 +43,7 @@
       border: 0.4rem $cl-prime solid;
 
       &--fork {
-        display: block;
-        width: 100%;
-        width: 100%;
+        @include image;
       }
     }
 
@@ -59,13 +57,13 @@
     &__name {
       font-weight: 200;
       font-size: 5rem;
-      color: #eeeeee;
+      color: $cl-white;
       margin-top: 3rem;
     }
 
     &__sub {
       font-size: 2rem;
-      color: #eeeeee;
+      color: $cl-white;
       margin-top: 1rem;
     }
   }
@@ -150,7 +148,7 @@
 
     &--p {
       font-size: 1.8rem;
-      color: #eee;
+      color: $cl-white;
       text-align: left;
       font-style: italic;
 
@@ -162,5 +160,76 @@
     &--btn {
       justify-self: center;
     }
+  }
+}
+
+// SECTION GALLERY
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  // grid-template-rows: repeat(2, 20vw);
+  // grid-column-gap: 1rem;
+  // grid-row-gap: 1rem;
+  // padding: 0 1rem;
+
+  &__wrapper {
+    position: relative;
+    overflow: hidden;
+
+    &:hover .gallery__overlay {
+      left: 0%;
+    }
+  }
+
+  &__overlay {
+    position: absolute;
+    color: $cl-white;
+    background-color: rgba($cl-prime, 0.7);
+    z-index: 3;
+
+    @extend %fullSpace;
+
+    left: -100%;
+
+    @include flexCenter;
+    flex-direction: column;
+    transition: left 0.8s;
+
+    &--name {
+      font-size: 4rem;
+    }
+
+    &--price {
+      font-size: 2.4rem;
+      padding-bottom: 2rem;
+    }
+
+    &--btn {
+      cursor: pointer;
+      padding: 1.2rem 3rem;
+      border-radius: 2rem;
+      border: none;
+      font-size: 1.6rem;
+      text-transform: uppercase;
+      font-family: $font-prime;
+      border: 0.1rem solid $cl-prime;
+      color: $cl-prime;
+      transition: background-color 0.3s, color 0.3s;
+
+      &:hover {
+        background-color: $cl-prime;
+        color: $cl-white;
+      }
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+
+  &__image {
+    @include image;
+    opacity: 0.8;
   }
 }

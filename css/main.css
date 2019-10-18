@@ -16,6 +16,10 @@ body {
   color: #333;
   background-color: #262626; }
 
+.gallery__overlay {
+  width: 100%;
+  height: 100%; }
+
 .header {
   position: relative;
   width: 100%;
@@ -45,9 +49,10 @@ body {
       border-radius: 50%;
       border: 0.4rem #d3ab55 solid; }
       .header .brand__icon--fork {
-        display: block;
         width: 100%;
-        width: 100%; }
+        height: 100%;
+        display: block;
+        object-fit: cover; }
     .header .brand__headings {
       display: flex;
       flex-direction: column;
@@ -56,11 +61,11 @@ body {
     .header .brand__name {
       font-weight: 200;
       font-size: 5rem;
-      color: #eeeeee;
+      color: #eee;
       margin-top: 3rem; }
     .header .brand__sub {
       font-size: 2rem;
-      color: #eeeeee;
+      color: #eee;
       margin-top: 1rem; }
   .header .banner {
     align-self: center;
@@ -119,6 +124,53 @@ body {
         padding-left: 5rem; }
     .about__right--btn {
       justify-self: center; }
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); }
+  .gallery__wrapper {
+    position: relative;
+    overflow: hidden; }
+    .gallery__wrapper:hover .gallery__overlay {
+      left: 0%; }
+  .gallery__overlay {
+    position: absolute;
+    color: #eee;
+    background-color: rgba(211, 171, 85, 0.7);
+    z-index: 3;
+    left: -100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    transition: left 0.8s; }
+    .gallery__overlay--name {
+      font-size: 4rem; }
+    .gallery__overlay--price {
+      font-size: 2.4rem;
+      padding-bottom: 2rem; }
+    .gallery__overlay--btn {
+      cursor: pointer;
+      padding: 1.2rem 3rem;
+      border-radius: 2rem;
+      border: none;
+      font-size: 1.6rem;
+      text-transform: uppercase;
+      font-family: "Josefin Sans", sans-serif;
+      border: 0.1rem solid #d3ab55;
+      color: #d3ab55;
+      transition: background-color 0.3s, color 0.3s; }
+      .gallery__overlay--btn:hover {
+        background-color: #d3ab55;
+        color: #eee; }
+      .gallery__overlay--btn:focus {
+        outline: none; }
+  .gallery__image {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    opacity: 0.8; }
 
 .btn {
   cursor: pointer;
