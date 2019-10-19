@@ -19,24 +19,22 @@
     }
   }
 
-  &::before {
-  }
-
-  &::after {
-  }
-
   &__box {
     display: flex;
   }
   &__left {
-    position: relative;
+    position: fixed;
     width: 50vw;
     height: 100vh;
     background-color: $cl-dark;
 
+    z-index: 100;
+    left: 0;
+
     &--wrapper {
+      position: absolute;
       width: 65%;
-      // height: 20vw;
+      box-shadow: 0 2rem 4rem #05050538;
 
       border-radius: 0.5rem;
       overflow: hidden;
@@ -45,37 +43,60 @@
     &--image {
       @include image;
       opacity: 0.8;
+
       &-1 {
-        position: absolute;
         top: 20%;
-        left: 10%;
+        left: 6%;
         z-index: 3;
       }
       &-2 {
-        position: absolute;
         top: 35%;
-        left: 22%;
+        left: 16%;
         z-index: 4;
       }
       &-3 {
-        position: absolute;
         top: 50%;
-        left: 30%;
+        left: 26%;
         z-index: 4;
       }
     }
   }
 
   &__right {
-    // flex: 1;
+    position: fixed;
     width: 50vw;
     height: 100vh;
     background-color: #1f1d1d;
 
+    z-index: 100;
+    right: 0;
+
+    @include flexCenter;
+
     &--list {
+      list-style: none;
     }
 
     &--item {
+      font-family: $font-cursive;
+      font-size: 5rem;
+    }
+
+    &--link {
+      display: inline-block;
+      transition: transform 0.3s, color 0.3s;
+
+      &:link,
+      &:visited {
+        text-decoration: none;
+        color: $cl-prime;
+      }
+
+      &:hover,
+      &:active {
+        transform: scale(1.08);
+        color: #f1e1b9;
+      }
     }
   }
 }
