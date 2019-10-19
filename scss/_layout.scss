@@ -1,3 +1,85 @@
+//  MENU ICON
+
+.navigation {
+  // display: none;
+  position: relative;
+  &__check {
+    // display: none;
+  }
+  &__menu {
+  }
+  &__label {
+    &--before {
+    }
+
+    &--center {
+    }
+
+    &--after {
+    }
+  }
+
+  &::before {
+  }
+
+  &::after {
+  }
+
+  &__box {
+    display: flex;
+  }
+  &__left {
+    position: relative;
+    width: 50vw;
+    height: 100vh;
+    background-color: $cl-dark;
+
+    &--wrapper {
+      width: 65%;
+      // height: 20vw;
+
+      border-radius: 0.5rem;
+      overflow: hidden;
+    }
+
+    &--image {
+      @include image;
+      opacity: 0.8;
+      &-1 {
+        position: absolute;
+        top: 20%;
+        left: 10%;
+        z-index: 3;
+      }
+      &-2 {
+        position: absolute;
+        top: 35%;
+        left: 22%;
+        z-index: 4;
+      }
+      &-3 {
+        position: absolute;
+        top: 50%;
+        left: 30%;
+        z-index: 4;
+      }
+    }
+  }
+
+  &__right {
+    // flex: 1;
+    width: 50vw;
+    height: 100vh;
+    background-color: #1f1d1d;
+
+    &--list {
+    }
+
+    &--item {
+    }
+  }
+}
+
 // SECTION HEADER
 
 .header {
@@ -231,5 +313,82 @@
   &__image {
     @include image;
     opacity: 0.8;
+  }
+}
+
+// FOOTER
+
+.footer {
+  color: $cl-white;
+  display: grid;
+  grid-row-gap: 6rem;
+  padding: 6rem 0;
+  justify-items: center;
+
+  &__wrapper {
+    display: grid;
+    grid-template-columns: min-content 1fr;
+  }
+
+  &__logo {
+    justify-self: center;
+  }
+
+  &__icon {
+    width: 12rem;
+    height: 12rem;
+
+    padding: 1rem;
+    margin-right: 1rem;
+    border-radius: 50%;
+    border: 0.4rem $cl-prime solid;
+    &--fork {
+      @include image;
+    }
+  }
+
+  &__headings {
+    align-self: center;
+    margin-top: 3rem;
+
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__name {
+    font-weight: 200;
+    font-size: 5rem;
+    color: $cl-white;
+  }
+
+  &__sub {
+    font-size: 2rem;
+    color: $cl-white;
+  }
+  &__social {
+    display: grid;
+    grid-template-columns: repeat(4, min-content);
+    grid-column-gap: 1rem;
+
+    // &--link {
+    // }
+    &--icon {
+      width: 7rem;
+      height: 7rem;
+    }
+    &--img {
+      @include image;
+      opacity: 0.8;
+      transition: transform 0.3s;
+
+      &:hover {
+        transform: scale(1.06);
+      }
+    }
+  }
+  &__copy {
+    font-size: 2rem;
   }
 }
