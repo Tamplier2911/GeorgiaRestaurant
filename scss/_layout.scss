@@ -4,24 +4,80 @@
   // display: none;
   position: relative;
   &__check {
-    // display: none;
+    display: none;
+
+    &:checked ~ .navigation__box .navigation__left {
+      left: 0;
+    }
+
+    &:checked ~ .navigation__box .navigation__right {
+      right: 0;
+    }
+
+    &:checked ~ .navigation__menu .navigation__label {
+      transform: rotateZ(90deg);
+    }
+
+    &:checked
+      ~ .navigation__menu
+      .navigation__label--before {
+      transform: rotateZ(-40deg);
+    }
+
+    &:checked
+      ~ .navigation__menu
+      .navigation__label--center {
+      opacity: 0;
+    }
+
+    &:checked
+      ~ .navigation__menu
+      .navigation__label--after {
+      transform: rotateZ(40deg);
+    }
   }
   &__menu {
+    width: 4rem;
+    height: 4rem;
+
+    position: fixed;
+    top: 10%;
+    right: 5%;
+    z-index: 200;
   }
+
   &__label {
-    &--before {
-    }
+    cursor: pointer;
+    @extend %fullSpace;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 
-    &--center {
-    }
+    transition: transform 0.5s;
 
-    &--after {
+    // &--before {
+    // }
+
+    // &--center {
+    // }
+
+    // &--after {
+    // }
+
+    &--line {
+      width: 100%;
+      height: 0.4rem;
+      background-color: $cl-prime;
+      transform-origin: right;
+
+      transition: transform 0.5s 0.5s, opacity 0.5s 0.5s;
     }
   }
 
   &__box {
     display: flex;
   }
+
   &__left {
     position: fixed;
     width: 50vw;
@@ -29,7 +85,14 @@
     background-color: $cl-dark;
 
     z-index: 100;
-    left: 0;
+    left: -50vw;
+
+    border-right: 0.5rem $cl-prime solid;
+    transition: left 0.8s;
+
+    @media only screen and (max-width: $bp-tablet) {
+      display: none;
+    }
 
     &--wrapper {
       position: absolute;
@@ -38,11 +101,18 @@
 
       border-radius: 0.5rem;
       overflow: hidden;
+      transition: z-index 0.3s, transform 0.3s;
+
+      &:hover {
+        z-index: 5;
+        opacity: 1;
+        transform: scale(1.1);
+      }
     }
 
     &--image {
       @include image;
-      opacity: 0.8;
+      opacity: 0.9;
 
       &-1 {
         top: 20%;
@@ -69,9 +139,17 @@
     background-color: #1f1d1d;
 
     z-index: 100;
-    right: 0;
+    right: -50vw;
+
+    border-left: 0.4rem $cl-prime solid;
+    transition: right 0.8s;
 
     @include flexCenter;
+
+    @media only screen and (max-width: $bp-tablet) {
+      width: 100vw;
+      right: -100vw;
+    }
 
     &--list {
       list-style: none;
@@ -183,6 +261,12 @@
 
     @include centeringAbs;
 
+    @media only screen and (max-width: $bp-phone-small) {
+      width: 100%;
+      height: 40rem;
+      text-align: center;
+    }
+
     &__heading {
       margin-bottom: auto;
     }
@@ -204,6 +288,14 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   padding: 15rem 2rem;
+
+  @media only screen and (max-width: $bp-tablet) {
+    grid-template-columns: 1fr;
+  }
+
+  @media only screen and (max-width: $bp-phone) {
+    padding: 8rem 2rem;
+  }
 
   &__left {
     display: flex;

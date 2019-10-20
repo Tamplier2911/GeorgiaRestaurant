@@ -1,12 +1,32 @@
+// BREAKPOINTS
+
+// 1440 / 16 = 90em;
+$bp-large: 90em;
+
+// 1024 / 16 = 64em;
+$bp-medium: 64em;
+
+// 768 / 16 = 48em;
+$bp-tablet: 48em;
+
+// 478 / 16 = 29.875‬em;
+$bp-phone: 29.875em;
+
+// 425 / 16 = 26.5625em;
+$bp-phone-small: 26.5625em;
+
+// COLOR PALET
 $cl-prime: #d3ab55;
 $cl-dark: #262626;
 $cl-black: #000;
 $cl-white: #eee;
 
+// TYPOGRAPHY
 $font-prime: "Josefin Sans", sans-serif;
 $font-cursive: "Dancing Script", cursive;
 $font-nurito: "Nunito", sans-serif;
 
+// BASIC RESET
 *,
 *::after,
 *::before {
@@ -17,7 +37,23 @@ $font-nurito: "Nunito", sans-serif;
 
 html {
   box-sizing: border-box;
+  // 10 / 16 * 100 = 62.5% = 10px
   font-size: 62.5%;
+
+  @media only screen and (max-width: $bp-large) {
+    // 9 / 16 * 100 = 56.25% = 9px
+    font-size: 56.25%;
+  }
+
+  @media only screen and (max-width: $bp-medium) {
+    // 8 / 16 * 100 = 50% = 8px
+    font-size: 50%;
+  }
+
+  @media only screen and (max-width: $bp-phone) {
+    // 7 / 16 * 100 = 43.75% = 7px
+    font-size: 43.75%;
+  }
 }
 
 body {
@@ -31,6 +67,7 @@ body {
   background-color: $cl-dark;
 }
 
+// MIXINS & UTILS
 @mixin flexCenter {
   display: flex;
   align-items: center;
